@@ -1,4 +1,4 @@
 telethon
-fasttelethon
+cryptg
 ffmpeg-python
 tqdm
