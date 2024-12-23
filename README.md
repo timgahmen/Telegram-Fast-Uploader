@@ -1,40 +1,75 @@
 # Telegram Fast Uploader
 
-This script will upload videos with streaming capabilities and other folders and files recursively by order very fast using Telethon and FastTelethon.
+A high-performance tool for uploading files to Telegram with support for video streaming, folder structure preservation, and automatic format conversion.
 
 ## Features
 
-- Uploads files and folders recursively
-- Maintains folder structure in Telegram messages
-- Upload the videos with streaming capabilities
-- Supports video thumbnail generation to unify the videos size showing in telegram (using ffmpeg)
-- Displays progress bar for uploads (using tqdm)
-- Avoids duplicate uploads
+- Fast recursive file uploads using Telethon and FastTelethon
+- Video streaming support with automatic MP4 conversion
+- Video quality selection (720p, 1080p, original)
+- Automatic thumbnail generation
+- Progress tracking with detailed status bars
+- Duplicate upload prevention
+- GPU acceleration support for video conversion (NVIDIA)
+- Subtitle handling and burning capabilities
+- Maintains folder hierarchy in Telegram messages
+- File size limit checks (2GB/4GB)
+- Comprehensive error handling
+
+> Some bugs still exists so use at your own risk
 
 ## Requirements
 
 - Python 3.6+
-- Telethon
-- FastTelethon
-- ffmpeg-python
-- tqdm
+- ffmpeg (`winget install ffmpeg`)
+- Required Python packages:
+  - telethon
+  - FastTelethon (file in this git)
+  - ffmpeg-python
+  - tqdm
+  - cryptg
 
 ## Setup
 
-1. Clone this repository `git clone https://github.com/ronen1n/Telegram-Fast-Uploader.git`
-2. Install the required packages: `pip install -r requirements.txt`
-3. Obtain your Telegram API credentials (api_id and api_hash) from https://my.telegram.org (login > API development tools)
-4. Update the `api_id`, `api_hash`, and `chat_id` (dont delete the -100) variables in the script
-5. Run the script: `python telegram_uploader.py "folder_path"`
+1. Clone the repository:
+
+```bash
+git clone https://github.com/ronen1n/Telegram-Fast-Uploader.git
+```
+
+2. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Get Telegram API credentials:
+   - Visit [https://my.telegram.org](https://my.telegram.org)
+   - Login and go to "API development tools"
+   - Create a new application
+   - Copy `api_id` and `api_hash`
+   - Update these values in the script
 
 ## Usage
 
+List available chats:
+
+```bash
+python Telegram_Fast_Uploader.py list-chats
 ```
-python Telegram_Fast_Uploader.py /path/to/folder
-# or
-python Telegram_Fast_Uploader.py "C:\folder"
+
+Upload files:
+
+```bash
+python Telegram_Fast_Uploader.py upload <folder_path> --chat-id <chat_id>
+```
+
+Example:
+
+```bash
+python Telegram_Fast_Uploader.py upload "C:\Videos" --chat-id "-1002392769999"
 ```
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - See [LICENSE](LICENSE) file for details.
